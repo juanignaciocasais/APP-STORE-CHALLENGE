@@ -20,7 +20,7 @@ class CreateVotesTable extends Migration
             $table->double('rating');
             $table->timestamps();
             $table->foreign('app_id')->references('app_id')->on('apps');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -22,7 +22,7 @@ class CreateAppsTable extends Migration
             $table->string('image');
             $table->timestamps();
             $table->foreign('category_id')->references('category_id')->on('categories');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
