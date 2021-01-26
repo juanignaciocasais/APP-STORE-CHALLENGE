@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('side-nav')
 
 <div class="float-left list-group">
   <li class="list-group-item list-group-item-action active">Categories</li>
@@ -10,4 +8,3 @@
   <a href="#" class="list-group-item list-group-item-action">4</a>
 </div>
 
-@endsection

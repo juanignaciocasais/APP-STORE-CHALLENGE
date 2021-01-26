@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+@include('list-nav')
 <div class="container">
     <div class="card-group">
         @foreach($apps as $app)
