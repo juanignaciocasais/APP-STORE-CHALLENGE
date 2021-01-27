@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <form role="form" method="post" action="" accept-charset="UTF-8" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <div class="form-group">
-                            <label for="price">Price - $USD</label>
+                            <label for="price">Price $</label>
                             <input type="number" class="form-control" id="price" name="price" min="0" value="">
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                         <input type="file" class="form-control" name="image">
                     </div>
 
-                    <input type="hidden" name="app_id" value="{{ $app->app_id }}">
+                    <input type="hidden" name="app_id" value=" $app->app_id ">
 
                     <button type="submit" class="btn btn-primary">Save</button>
             </form>

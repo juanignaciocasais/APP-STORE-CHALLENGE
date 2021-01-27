@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Providers\RouteServiceProvider;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', ['uses' => 'App\Http\Controllers\AppController@index']);
+Route::get('/apps', ['uses' => 'App\Http\Controllers\AppController@index']);
+Route::get('/', function () {
+    return redirect(RouteServiceProvider::HOME);
+});
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/me/apps/add', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/me/apps', [App\Http\Controllers\UsersController::class, 'index'])->name('my/apps');
+

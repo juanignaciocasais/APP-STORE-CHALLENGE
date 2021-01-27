@@ -21,5 +21,4 @@ class AppController extends Controller
         $app = new App();
         return view('app-form', ['app' => $app]);
     }
-
-    }
+}
