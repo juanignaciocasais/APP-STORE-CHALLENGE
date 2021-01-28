@@ -20,6 +20,7 @@ class CreateAppsTable extends Migration
             $table->integer('category_id');
             $table->integer('user_id');
             $table->integer('price');
+            $table->double('rating')->nullable();
             $table->string('image');
             $table->timestamps();
             $table->foreign('category_id')->references('category_id')->on('categories');
