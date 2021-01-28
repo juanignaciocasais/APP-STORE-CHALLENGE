@@ -38,6 +38,7 @@ class UsersController extends Controller
 
     function clientView($apps)
     {
+        print_r($apps);
         return view('apps', ['apps' => $apps]);
     }
 }

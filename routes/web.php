@@ -21,7 +21,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/me/apps/add', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/me/apps/add', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/me/apps', [App\Http\Controllers\UsersController::class, 'index'])->name('my/apps');
 
+Route::get('/me/apps/add', [App\Http\Controllers\DevAppController::class, 'add'])->name('add');
+
+Route::post('/me/apps/update', [App\Http\Controllers\DevAppController::class, 'update'])->name('update');
+
+//Route::post('/me/apps/update', [App\Http\Controllers\DevAppController::class, 'view'])->name('view');
+
+Route::get('/me/apps/del/{app_id}', [App\Http\Controllers\DevAppController::class, 'delete'])->name('delete');

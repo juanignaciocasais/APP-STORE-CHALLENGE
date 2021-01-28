@@ -4,7 +4,9 @@
 <div class="container">
 
     <h1>My Apps</h1>
-
+    <div class="form-group">
+    
+    </div>
     <div class="row">
         <div class="col-6">
             <form>
@@ -13,11 +15,8 @@
                     <input name="app_name" type="text" class="form-control" id="app_name" placeholder="Enter App Name" value="">
                 </div>
                 <div class="form-group">
-                    <label for="category">Category</label>
-                    <input name="category" type="text" class="form-control" id="category" placeholder="Enter category" value="">
-                </div>
-                <div class="form-group">
                     <button type="submit" class="btn btn-primary">Search</button>
+                    <a class="btn btn-primary" href="{{route('add')}}">Upload a New App<i></i></a>
                 </div>
             </form>
         </div>
@@ -42,8 +41,8 @@
                 <td> $app->categoryName() </td>
                 <td>${{ $app->price }}</td>
                 <td>
-                    <a class="btn btn-success btn-xs" href="route('admin::surveys_view',['id'=>$row->id])">Edit<i></i></a>
-                    <a class="btn btn-danger btn-xs" href="route('admin::surveys_delete',['id'=>$row->id])">Delete<i></i></a>
+                    <a class="btn btn-success btn-xs" href="route('view',['app_id'=>$app->app_id])">Edit<i></i></a>
+                    <a class="btn btn-danger btn-xs" href="{{route('delete',['app_id'=>$app->app_id])}}">Delete<i></i></a>
                 </td>
             </tr>
             @endforeach
