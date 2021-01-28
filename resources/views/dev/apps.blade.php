@@ -5,20 +5,13 @@
 
     <h1>My Apps</h1>
     <div class="form-group">
-    
+
     </div>
     <div class="row">
         <div class="col-6">
-            <form>
-                <div class="form-group">
-                    <label for="app_name">App Name</label>
-                    <input name="app_name" type="text" class="form-control" id="app_name" placeholder="Enter App Name" value="">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                    <a class="btn btn-primary" href="{{route('add')}}">Upload a New App<i></i></a>
-                </div>
-            </form>
+            <div class="form-group">
+                <a class="btn btn-primary" href="{{route('add')}}">Upload a New App<i></i></a>
+            </div>
         </div>
     </div>
 
@@ -38,7 +31,7 @@
             <tr>
                 <td>{{ $app->app_id }}</td>
                 <td>{{ $app->app_name }}</td>
-                <td> $app->categoryName() </td>
+                <td>{{ $app->categoryName($app->category_id) }}</td>
                 <td>${{ $app->price }}</td>
                 <td>
                     <a class="btn btn-success btn-xs" href="route('view',['app_id'=>$app->app_id])">Edit<i></i></a>

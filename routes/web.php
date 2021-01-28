@@ -21,8 +21,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/me/apps/add', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/me/apps', [App\Http\Controllers\UsersController::class, 'index'])->name('my/apps');
 
 Route::get('/me/apps/add', [App\Http\Controllers\DevAppController::class, 'add'])->name('add');
