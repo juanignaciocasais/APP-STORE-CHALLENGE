@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        DB::statement("INSERT INTO `categories` (`category_id`, `category_name`) VALUES
+            (1, 'Games'),
+            (2, 'Sports'),
+            (3, 'Finance'),
+            (4, 'Tools'),
+            (5, 'Music'),
+            (6, 'Social')
+        ");
     }
 }

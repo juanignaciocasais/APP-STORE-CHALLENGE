@@ -25,9 +25,9 @@
                         <div class="form-group">
                             <label>Category</label>
                             <select class="form-control" name="category_id" id="category_id">
-
-                                <option value="1" selected>Games</option>
-
+                                @foreach($categories as $category)
+                                <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">

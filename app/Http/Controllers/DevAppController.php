@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\App;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 
 class DevAppController extends Controller
@@ -16,7 +17,8 @@ class DevAppController extends Controller
     public function add(Request $request)
     {
         $app = new App();
-        return view('dev.app-form', ['app' => $app]);
+        $categories = Category::get();
+        return view('dev.app-form', ['app' => $app, 'categories' => $categories]);
     }
 
     public function view(Request $request, $app_id)
