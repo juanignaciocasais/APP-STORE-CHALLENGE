@@ -23,6 +23,7 @@
                 <th scope="col">App Name</th>
                 <th scope="col">Category</th>
                 <th scope="col">Price</th>
+                <th scope="col">Publish</th>
                 <th scope="col">Options</th>
             </tr>
         </thead>
@@ -33,8 +34,9 @@
                 <td>{{ $app->app_name }}</td>
                 <td>{{ $app->categoryName($app->category_id) }}</td>
                 <td>${{ $app->price }}</td>
+                <td>{{ ($app->publish == 1) ? "YES" : "NO" }}</td>
                 <td>
-                    <a class="btn btn-success btn-xs" href="route('view',['app_id'=>$app->app_id])">Edit<i></i></a>
+                    <a class="btn btn-success btn-xs" href="{{route('view',['app_id'=>$app->app_id])}}">Edit<i></i></a>
                     <a class="btn btn-danger btn-xs" href="{{route('delete',['app_id'=>$app->app_id])}}">Delete<i></i></a>
                 </td>
             </tr>
