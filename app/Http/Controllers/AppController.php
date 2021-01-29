@@ -10,7 +10,7 @@ class AppController extends Controller
 {
     public function index(Request $request)
     {
-        $app = App::get();
+        $app = App::get()->where('publish', 1);
         $categories = Category::get();
         return view('apps', ['apps' => $app, 'categories' => $categories]);
     }
