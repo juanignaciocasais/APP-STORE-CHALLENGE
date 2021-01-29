@@ -27,6 +27,6 @@ Route::get('/me/apps/add', [App\Http\Controllers\DevAppController::class, 'add']
 
 Route::post('/me/apps/update', [App\Http\Controllers\DevAppController::class, 'update'])->name('update');
 
-//Route::post('/me/apps/update', [App\Http\Controllers\DevAppController::class, 'view'])->name('view');
+Route::get('/me/apps/update/{app_id}', [App\Http\Controllers\DevAppController::class, 'view'])->name('view');
 
 Route::get('/me/apps/del/{app_id}', [App\Http\Controllers\DevAppController::class, 'delete'])->name('delete');
