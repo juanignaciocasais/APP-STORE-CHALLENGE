@@ -15,4 +15,11 @@ class AppController extends Controller
         return view('apps', ['apps' => $app, 'categories' => $categories]);
     }
 
+    public function detail(Request $request , $app_id)
+    {
+        $app = App::find($app_id);
+        $categories = Category::get();
+        return view('detail', ['app' => $app, 'categories' => $categories]);
+    }
+
 }
