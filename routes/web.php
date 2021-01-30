@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Providers\RouteServiceProvider;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', ['uses' => 'App\Http\Controllers\AppController@index']);
+Route::get('/apps', ['uses' => 'App\Http\Controllers\AppController@index']);
+
+Route::get('/', function () {
+    return redirect(RouteServiceProvider::HOME);
+});
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/me/apps', [App\Http\Controllers\UsersController::class, 'index'])->name('my/apps');
+
+Route::get('/me/apps/add', [App\Http\Controllers\DevAppController::class, 'add'])->name('add');
+
+Route::post('/me/apps/update', [App\Http\Controllers\DevAppController::class, 'update'])->name('update');
+
+Route::get('/me/apps/update/{app_id}', [App\Http\Controllers\DevAppController::class, 'view'])->name('view');
+
+Route::get('/me/apps/del/{app_id}', [App\Http\Controllers\DevAppController::class, 'delete'])->name('delete');
