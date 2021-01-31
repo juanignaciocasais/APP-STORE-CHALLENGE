@@ -4,6 +4,6 @@
   </div>
   <li class="list-group-item list-group-item-action active">Categories</li>
   @foreach($categories as $category)
-  <a href="#" class="list-group-item list-group-item-action">{{$category->category_name}}</a>
+  <a href="{{route('filter', $category->category_id)}}" class="list-group-item list-group-item-action">{{$category->category_name}}</a>
   @endforeach
 </div>

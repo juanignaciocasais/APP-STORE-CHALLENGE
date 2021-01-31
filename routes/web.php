@@ -16,7 +16,9 @@ use App\Providers\RouteServiceProvider;
 
 Route::get('/apps', ['uses' => 'App\Http\Controllers\AppController@index']);
 
-Route::get('/apps/{app_id}', ['uses' => 'App\Http\Controllers\AppController@detail'])->name('detail');
+Route::get('/apps/detail/{app_id}', ['uses' => 'App\Http\Controllers\AppController@detail'])->name('detail');
+
+Route::get('/apps/{category_id}', ['uses' => 'App\Http\Controllers\AppController@categoryFilter'])->name('filter');
 
 Route::get('/', function () {
     return redirect(RouteServiceProvider::HOME);
