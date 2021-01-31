@@ -38,6 +38,7 @@
                 <td>
                     <a class="btn btn-success btn-xs" href="{{route('view',['app_id'=>$app->app_id])}}">Edit<i></i></a>
                     <a class="btn btn-danger btn-xs" href="{{route('delete',['app_id'=>$app->app_id])}}">Delete<i></i></a>
+                    <a class="btn btn-info btn-xs" href="{{route('prices',['app_id'=>$app->app_id])}}">History Prices<i></i></a>
                 </td>
             </tr>
             @endforeach

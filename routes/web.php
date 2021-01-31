@@ -35,3 +35,6 @@ Route::post('/me/apps/update', [App\Http\Controllers\DevAppController::class, 'u
 Route::get('/me/apps/update/{app_id}', [App\Http\Controllers\DevAppController::class, 'view'])->name('view');
 
 Route::get('/me/apps/del/{app_id}', [App\Http\Controllers\DevAppController::class, 'delete'])->name('delete');
+
+Route::get('/me/apps/prices/{app_id}', [App\Http\Controllers\DevAppController::class, 'prices'])->name('prices');
+    
