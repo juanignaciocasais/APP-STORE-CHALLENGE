@@ -28,7 +28,7 @@
 
                         <div class="form-group">
                             <label for="app_name">App Name</label>
-                            <input type="text" class="form-control" id="app_name" name="app_name" value="{{old('app_name',$app->app_name)}}">
+                            <input type="text" class="form-control" id="app_name" name="app_name" value="{{old('app_name',$app->app_name)}}" {{(old('app_name',$app->app_name) ? "readonly" : "")}}>
                         </div>
 
                         <div class="form-group">
@@ -38,11 +38,14 @@
 
                         <div class="form-group">
                             <label>Category</label>
-                            <select class="form-control" name="category_id" id="category_id">
+                            <select class="form-control" name="category_id" id="category_id" {{(old('app_name',$app->app_name) ? "readonly disabled" : "")}}>
                                 @foreach($categories as $category)
-                                <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+                                <option value="{{$category->category_id}}" {{($category->category_id == old('category_id',$app->category_id)) ? "selected" : ""}}>{{$category->category_name}}</option>
                                 @endforeach
                             </select>
+                            @if(old('category_id',$app->category_id))
+                            <input type="hidden" name="category_id" value="{{old('category_id',$app->category_id)}}" />
+                            @endif
                         </div>
 
                         <div class="form-group">
