@@ -75,10 +75,17 @@
                 </div>
             </div>
         </nav>
-        
+
         <main class="float-rigth py-4">
-            
-        @yield('content')
+            <div class="container">
+                @if(Session::has('custom-error'))
+                <p class="alert alert-danger">{{Session::get('custom-error')}}
+                @endif
+                @if(Session::has('success'))
+                <p class="alert alert-success">{{Session::get('success')}}
+                @endif
+            </div>
+            @yield('content')
         </main>
     </div>
 </body>

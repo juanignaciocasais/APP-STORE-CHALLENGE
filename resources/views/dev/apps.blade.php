@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-
     <h1>My Apps</h1>
     <div class="form-group">
 
