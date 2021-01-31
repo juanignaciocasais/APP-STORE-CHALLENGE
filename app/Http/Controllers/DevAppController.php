@@ -49,15 +49,19 @@ class DevAppController extends Controller
         $app->publish = $request->input('publish');
         if (!$app->image) $app->image = $request->file('image')->store('storage/app/images');
         $app->save();
-        $this->lastPriceCheck($request->input('price'), $request->input('app_id'));
 
         return redirect(route('my/apps'));
     }
 
     public function delete(Request $request, $app_id)
     {
-        $app = App::find($app_id);
-        $app->delete();
+        try {
+            $app = App::find($app_id);
+            $app->delete();
+            $request->session()->flash('success', 'The App was deleted');
+        } catch (\Throwable $th) {
+            $request->session()->flash('custom-error', "You can't delete the app, try unpublish");
+        }
 
         return redirect(route('my/apps'));
     }
@@ -74,20 +78,6 @@ class DevAppController extends Controller
             'description' => ['nullable', 'string', 'max:255'],
             'price' => ['numeric', 'gt:-1', 'max:255'],
         ])->setAttributeNames($attributeNames);
-    }
-
-    protected function lastPriceCheck($price, $app_id)
-    {
-        $last_price = History_price::where('app_id', $app_id)->latest()->first()->get();
-        print_r($last_price);
-        die();
-        if (!$last_price('last_price') == $price) 
-        {
-            $price = new History_price();
-            $price->last_price = $price;
-            $price->app_id = $app_id;
-            $price->save();
-        }
     }
     
     public function prices(Request $request, $app_id)

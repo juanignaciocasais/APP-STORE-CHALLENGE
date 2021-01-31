@@ -18,7 +18,7 @@ class CreateHistoryPricesTable extends Migration
             $table->double('last_price');
             $table->integer('app_id');
             $table->timestamps();
-            $table->foreign('app_id')->references('app_id')->on('apps');
+            $table->foreign('app_id')->references('app_id')->on('apps')->onDelete('cascade');
         });
     }
 
