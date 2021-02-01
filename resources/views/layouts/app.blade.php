@@ -86,6 +86,7 @@
                 @endif
             </div>
             @yield('content')
+            @yield('scripts')
         </main>
     </div>
 </body>

@@ -3,6 +3,12 @@
 @section('content')
 @include('list-nav', ['categories' => $categories])
 <div class="container">
+    @if(str_contains(url()->current(), '/me/apps'))
+    <div class="container ml-4">
+        <h1>My Apps</h1>
+    </div>
+    @endif
+
     <div class="card-group">
         @foreach($apps as $app)
         <div class="col-md-3">
@@ -17,7 +23,8 @@
                     <p className="card-text">Rating: {{$app->rating}}<img className="starImage" src="http://pluspng.com/img-png/star-hd-png-star-png-image-yildiz-png-3580.png" width="25" height="25" alt="Star HD PNG" /></p>
 
                     @if(!str_contains(url()->current(), '/me/apps'))
-                    <a href="#" class="btn btn-primary">Add to cart for ${{$app->price}}</a>
+                    <input type="button" class="btn btn-primary" onclick="buyApp({{$app->app_id}})" value="Add to cart for ${{$app->price}}"></input>
+                    <input type="button" class="btn btn-primary mt-2" value="Add to wish list"></input>
                     @endif
 
                     <input type="hidden" name="app_id" value="{{$app->app_id}}">
@@ -28,4 +35,18 @@
         @endforeach
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    function buyApp($app_id) {
+        axios.post('/api/buy', {
+            app_id: $app_id
+        }).then(response => {
+            console.log(response)
+        }).catch(error => {
+            console.log(error.response)
+        })
+    }
+</script>
 @endsection

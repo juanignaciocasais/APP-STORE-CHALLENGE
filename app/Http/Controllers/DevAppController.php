@@ -50,6 +50,8 @@ class DevAppController extends Controller
         if (!$app->image) $app->image = $request->file('image')->store('storage/app/images');
         $app->save();
 
+        $request->session()->flash('success', 'The App was uploaded');
+
         return redirect(route('my/apps'));
     }
 
@@ -77,6 +79,7 @@ class DevAppController extends Controller
             'app_name' => ['required', 'string', 'max:80'],
             'description' => ['nullable', 'string', 'max:255'],
             'price' => ['numeric', 'gt:-1', 'max:255'],
+            'category_id' => ['numeric', 'gt:0', 'max:6'],
         ])->setAttributeNames($attributeNames);
     }
     
