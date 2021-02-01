@@ -8,7 +8,11 @@
         <a class="dropdown-toggle list-group-item list-group-item-action active" data-toggle="dropdown" href="#">Categories</a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
           @foreach($categories as $category)
+          @if(str_contains(url()->current(), '/me/apps'))
+          <li><a href="{{route('client/filter', $category->category_id)}}">{{$category->category_name}}</a></li>
+          @else
           <li><a href="{{route('filter', $category->category_id)}}">{{$category->category_name}}</a></li>
+          @endif
           @endforeach
           <li class="divider"></li>
         </ul>

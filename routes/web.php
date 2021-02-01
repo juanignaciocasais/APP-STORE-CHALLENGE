@@ -38,3 +38,6 @@ Route::get('/me/apps/del/{app_id}', [App\Http\Controllers\DevAppController::clas
 
 Route::get('/me/apps/prices/{app_id}', [App\Http\Controllers\DevAppController::class, 'prices'])->name('prices');
     
+Route::get('/me/apps/{category_id}', [App\Http\Controllers\ClientAppController::class,'categoryFilter'])->name('client/filter');
+
+Route::post('/api/buy', [App\Http\Controllers\ClientAppController::class,'apiBuy'])->name('/api/buy');

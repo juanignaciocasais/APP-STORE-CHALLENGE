@@ -42,10 +42,11 @@ class UsersController extends Controller
     {
         $categories = Category::get();
         $buyed_apps = Buy::where('user_id', $user_id)->get();
-        foreach ($buyed_apps as $apps) {
-             $n = $apps->app_id;
+        $buyed_app_ids = [];
+        foreach ($buyed_apps as $buyed_app) {
+             $buyed_app_ids[] = $buyed_app->app_id;
         }
-        $apps = App::where('app_id', $n)->get();
+        $apps = App::whereIn('app_id', $buyed_app_ids)->get();
         return view('apps', ['apps' => $apps, 'categories' => $categories]);
     }
 }
