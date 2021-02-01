@@ -24,7 +24,6 @@
 
                     @if(!str_contains(url()->current(), '/me/apps'))
                     <input type="button" class="btn btn-primary" onclick="buyApp({{$app->app_id}})" value="Add to cart for ${{$app->price}}"></input>
-                    <input type="button" class="btn btn-primary mt-2" value="Add to wish list"></input>
                     @endif
 
                     <input type="hidden" name="app_id" value="{{$app->app_id}}">
