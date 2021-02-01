@@ -23,7 +23,7 @@
                     <p className="card-text">Rating: {{$app->rating}}<img className="starImage" src="http://pluspng.com/img-png/star-hd-png-star-png-image-yildiz-png-3580.png" width="25" height="25" alt="Star HD PNG" /></p>
 
                     @if(!str_contains(url()->current(), '/me/apps'))
-                    <input type="button" class="btn btn-primary" onclick="buyApp({{$app->app_id}})" value="Add to cart for ${{$app->price}}"></input>
+                    <input type="button" class="btn btn-primary" onclick="buyApp({{$app->app_id}})" value="Buy for ${{$app->price}}"></input>
                     @endif
 
                     <input type="hidden" name="app_id" value="{{$app->app_id}}">
