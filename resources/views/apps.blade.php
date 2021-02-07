@@ -11,7 +11,7 @@
 
     <div class="d-inline-block d-lg-flex card-group">
         @foreach($apps as $app)
-        <div class="col-md-3 m-4">
+        <div class="col-md-3 m-2">
             <div class="card-columns-fluid shadow" style="width: 14rem;">
                 <a href="{{route('detail',['app_id'=>$app->app_id])}}">
                     <img src="{{ asset($app->image) }}" class="card-img-top" width="160px" height="160px" alt="{{$app->app_name}} image">
