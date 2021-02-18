@@ -10,7 +10,7 @@ class AppController extends Controller
 {
     public function index(Request $request)
     {
-        $app = App::get()->where('publish', 1);
+        $app = App::where('publish', 1)->get();
         $categories = Category::get();
         return view('apps', ['apps' => $app, 'categories' => $categories]);
     }
@@ -24,8 +24,9 @@ class AppController extends Controller
 
     public function categoryFilter(Request $request, $category_id)
     {
-        $apps = App::get()->where('category_id', $category_id)
-                          ->where('publish', 1);
+        $apps = App::where('category_id', $category_id)
+                    ->where('publish', 1)
+                    ->get();
         $categories = Category::get();
         return view('apps', ['apps' => $apps, 'categories' => $categories]);
     }

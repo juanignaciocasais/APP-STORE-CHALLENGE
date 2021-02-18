@@ -42,7 +42,8 @@ function updateHistory($model)
 {
     $last_history_prices = History_price::where('app_id', $model->app_id)
         ->limit(1)
-        ->orderBy('created_at', 'desc')->get();
+        ->orderBy('created_at', 'desc')
+        ->get();
 
     if (count($last_history_prices) > 0 && $last_history_prices[0]->last_price == $model->price) {
         return;

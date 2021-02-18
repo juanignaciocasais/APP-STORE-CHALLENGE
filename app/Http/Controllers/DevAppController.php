@@ -85,7 +85,7 @@ class DevAppController extends Controller
     
     public function prices(Request $request, $app_id)
     {
-        $prices = History_price::get()->where('app_id', $app_id);
+        $prices = History_price::where('app_id', $app_id)->get();
         return view('dev.prices', ['prices' => $prices]);
     }
 }
